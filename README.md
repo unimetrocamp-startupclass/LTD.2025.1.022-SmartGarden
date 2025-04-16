@@ -24,7 +24,7 @@ Sistema que auxilia o agricultor a monitorar sua plantação de maneira automát
 
 ## 1. 📘 Introdução
 
-O sistema visa automatizar o monitoramento ambiental de hortas, solucionando o problema de irrigação manual inadequada. Através de sensores físicos conectados a um Arduino, o sistema coleta dados de umidade e temperatura e os processa em uma aplicação Java, permitindo o acionamento automático da irrigação e visualização em tempo real.
+O sistema visa automatizar o monitoramento ambiental das plantas, solucionando o problema de irrigação manual inadequada. Através de sensores físicos conectados a um Arduino, o sistema coleta dados de umidade e temperatura e os processa em uma aplicação Java, permitindo o acionamento automático da irrigação e visualização em tempo real.
 
 ---
 
