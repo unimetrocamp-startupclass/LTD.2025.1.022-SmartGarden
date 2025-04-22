@@ -111,23 +111,17 @@ Jira = Software	Gestão ágil das sprints e tarefas
 **Arquitetura do Sistema**
 Como o sistema é embarcado e envolve a integração entre hardware e software, sua arquitetura é dividida em três camadas principais:
 +--------------------------+
-|   Agricultor (Usuário)   |
+|   Agricultor (Usuário)   | >
 +--------------------------+
-              |
-              v
 +--------------------------+
-| Interface Serial/Console |
+| Interface Serial/Console | > 
 +--------------------------+
-              |
-              v
 +------------------------------+
 |   Aplicação Java (OOP)       |
 | - Leitura dos sensores       |
 | - Lógica de irrigação        |
-| - Agendamento por horário    |
+| - Agendamento por horário    | > 
 +------------------------------+
-              |
-              v
 +---------------------------------+
 |     Arduino + Sensores          |
 | - DHT11 (sensor de temperatura) |
