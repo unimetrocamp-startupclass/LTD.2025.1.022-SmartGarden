@@ -78,14 +78,69 @@ Automatizar o cuidado da horta monitorando a temperatura e umidade do solo, acio
 ---
 
 ## 6. 🛠️ Materiais e Métodos
+**Modelagem do Sistema**
+1. Diagrama de Casos de Uso
+Este diagrama apresenta as interações entre o ator (agricultor) e os principais processos do sistema.
 
-- **Modelagem UML:** Diagrama de Casos de Uso e Diagrama de Classes.
-- **Tecnologias Utilizadas:**  
-  - Java (lógica do sistema)
-  - Arduino com sensores DHT11 e FC-28
-  - Comunicação serial (Java ↔ Arduino)
-  - Módulo relé (controle de bomba de irrigação)
-  - Draw.io / Lucidchart (modelos e diagramas)
+Ator: Agricultor
+
+Casos de Uso: Monitorar temperatura e umidade, Ativar irrigação automaticamente e Visualizar status em tempo real
+
+Sugestão de ferramenta para criação: Draw.io (diagrams.net)
+
+2. Diagrama de Classes (UML)
+- Modelo baseado em programação orientada a objetos em Java, destacando a relação entre as principais classes do sistema:
+- Sensor (classe abstrata)
+- SensorTemperatura
+- SensorUmidade
+- ControladorIrrigacao
+- Horta
+- RelogioSistema (controla os horários de irrigação)
+- MainApp (classe principal que orquestra o sistema)
+
+**Tecnologias Utilizadas:**
+> Tecnologia e	Descrição
+Java = Linguagem principal utilizada no desenvolvimento
+Bibliotecas Arduino (DHT11, FC-28) = Leitura de dados dos sensores de temperatura e umidade
+JDK + IDE (Eclipse / IntelliJ) = Ambiente de desenvolvimento Java
+JSerialComm / RXTX / Arduino-Serial-Comm = Comunicação entre Arduino e aplicação Java
+Draw.io / LucidChart = Criação dos diagramas UML
+GitHub = Controle de versão e documentação do projeto
+Jira = Software	Gestão ágil das sprints e tarefas
+
+**Arquitetura do Sistema**
+Como o sistema é embarcado e envolve a integração entre hardware e software, sua arquitetura é dividida em três camadas principais:
++--------------------------+
+|   Agricultor (Usuário)   |
++--------------------------+
+              |
+              v
++--------------------------+
+| Interface Serial/Console |
++--------------------------+
+              |
+              v
++------------------------------+
+|   Aplicação Java (OOP)       |
+| - Leitura dos sensores       |
+| - Lógica de irrigação        |
+| - Agendamento por horário    |
++------------------------------+
+              |
+              v
++---------------------------------+
+|     Arduino + Sensores          |
+| - DHT11 (sensor de temperatura) |
+| - FC-28 (sensor de umidade)     |
+| - Relé + bomba d’água           |
++---------------------------------+
+
+**Fluxo das Informações:**
+- Sensores enviam dados ao Arduino.
+- Arduino transmite os dados via porta serial.
+- Aplicação Java interpreta os dados recebidos.
+- Com base na lógica de irrigação, o sistema ativa a bomba d’água automaticamente, se necessário.
+- O usuário pode visualizar o status do sistema em tempo real via console.
 
 ---
 
