@@ -24,7 +24,7 @@ Sistema que auxilia o agricultor a monitorar sua plantação de maneira automát
 
 ## 1. 📘 Introdução
 
-O sistema visa automatizar o monitoramento ambiental das plantas, solucionando o problema de irrigação manual inadequada. Através de sensores físicos conectados a um Arduino, o sistema coleta dados de umidade e temperatura e os processa em uma aplicação Java, permitindo o acionamento automático da irrigação e visualização em tempo real.
+O sistema visa automatizar o monitoramento ambiental das plantas, solucionando o problema de irrigação manual inadequada. Através de sensores físicos conectados a um Arduino, o sistema coleta dados de umidade e temperatura e os processa em uma aplicação c++, permitindo o acionamento automático da irrigação e visualização em tempo real.
 
 ---
 
@@ -89,7 +89,7 @@ Casos de Uso: Monitorar temperatura e umidade, Ativar irrigação automaticament
 Sugestão de ferramenta para criação: Draw.io (diagrams.net)
 
 2. Diagrama de Classes (UML)
-- Modelo baseado em programação orientada a objetos em Java, destacando a relação entre as principais classes do sistema:
+- Modelo baseado em programação orientada a objetos em c++, destacando a relação entre as principais classes do sistema:
 - Sensor (classe abstrata)
 - SensorTemperatura
 - SensorUmidade
@@ -100,10 +100,9 @@ Sugestão de ferramenta para criação: Draw.io (diagrams.net)
 
 **Tecnologias Utilizadas:**
 > Tecnologia e	Descrição
-Java = Linguagem principal utilizada no desenvolvimento
+c++ = Linguagem principal utilizada no desenvolvimento
 Bibliotecas Arduino (DHT11, FC-28) = Leitura de dados dos sensores de temperatura e umidade
-JDK + IDE (Eclipse / IntelliJ) = Ambiente de desenvolvimento Java
-JSerialComm / RXTX / Arduino-Serial-Comm = Comunicação entre Arduino e aplicação Java
+VsCode = Ambiente de desenvolvimento c++
 Draw.io / LucidChart = Criação dos diagramas UML
 GitHub = Controle de versão e documentação do projeto
 Jira = Software	Gestão ágil das sprints e tarefas
@@ -113,21 +112,35 @@ Como o sistema é embarcado e envolve a integração entre hardware e software, 
 
 |   Agricultor (Usuário)   | > | Interface Serial/Console | > 
 
-|   Aplicação Java (OOP)       |
-| - Leitura dos sensores       |
-| - Lógica de irrigação        |
-| - Agendamento por horário    | > 
-
-|     Arduino + Sensores          |
-| - DHT11 (sensor de temperatura) |
-| - FC-28 (sensor de umidade)     |
-| - Relé + bomba d’água           |
-
++-----------------------------+
+|   Agricultor (Usuário)      |
++-----------------------------+
+           |
+           v
++--------------------------------+
+| Interface Serial/Console       |
++--------------------------------+
+           |
+           v
++------------------------------------+
+|     Aplicação C++ (OOP)            |
+| - Leitura dos sensores             |
+| - Lógica de irrigação              |
+| - Agendamento por horário          |
++------------------------------------+
+           |
+           v
++----------------------------------+
+|      Arduino + Sensores          |
+| - DHT11 (temperatura)            |
+| - FC-28 (umidade)                |
+| - Relé + bomba d’água            |
++----------------------------------+
 
 **Fluxo das Informações:**
 - Sensores enviam dados ao Arduino.
 - Arduino transmite os dados via porta serial.
-- Aplicação Java interpreta os dados recebidos.
+- Aplicação c++ interpreta os dados recebidos.
 - Com base na lógica de irrigação, o sistema ativa a bomba d’água automaticamente, se necessário.
 - O usuário pode visualizar o status do sistema em tempo real via console.
 
@@ -135,15 +148,50 @@ Como o sistema é embarcado e envolve a integração entre hardware e software, 
 
 ## 7. ✅ Resultados
 
-- **Protótipos das Telas:** Prints e descrições das interações serão incluídas após finalização.
-- **Código:** Será disponibilizado no repositório com comentários explicativos.
+-
+a.	Protótipo: O protótipo inicial do sistema foi desenvolvido utilizando o Tinkercad para simulação e testes. Atualmente, o protótipo está sendo implementado em uma maquete física para validação em ambiente real, além que será apresentado na FENETEC.
+ 
+b.	Códigos das principais funcionalidades: 
+#include <LiquidCrystal.h>  // Biblioteca para comunicação com display LCD 16x2
+
+int umi = 0;                       // Variável que armazena o valor da umidade do solo
+const int relePin = 12;           // Pino digital conectado ao módulo relé (aciona a bomba)
+LiquidCrystal lcd_1(0, 1, 2, 3, 4, 5);  // Pinos conectados ao LCD
+
+void setup()
+{
+  pinMode(A0, INPUT);             // Configura o pino A0 como entrada (sensor de umidade FC-28)
+  pinMode(relePin, OUTPUT);       // Configura o pino do relé como saída
+  digitalWrite(relePin, HIGH);    // Desliga a bomba no início (relé em nível alto = desligado)
+  lcd_1.begin(16, 2);             // Inicializa o LCD com 16 colunas e 2 linhas
+}
+
+void loop()
+{
+  umi = map(analogRead(A0), 0, 1023, 0, 100);  // Lê a umidade do solo e converte para escala de 0 a 100%
+
+  lcd_1.setCursor(0, 0);       // Posiciona o cursor na primeira linha
+  lcd_1.noAutoscroll();        // Evita rolagem automática do texto
+  lcd_1.print("                "); // Limpa a linha
+  lcd_1.setCursor(0, 0);       // Volta o cursor para o início
+
+  if (umi <= 30) {                         // Se a umidade estiver baixa
+    lcd_1.print("umidade baixa");         // Mostra alerta no LCD
+    digitalWrite(relePin, HIGH);          // Liga a bomba (nível alto no relé)
+  } else {
+    lcd_1.print("umidade adequada");      // Mostra status normal
+    digitalWrite(relePin, LOW);           // Desliga a bomba (nível baixo no relé)
+  }
+
+  delay(500);  // Aguarda 0,5 segundos antes da próxima leitura
+}
 
 ---
 
 ## 8. ✅ Conclusão
 
-- **Impacto:** Redução do desperdício de água e otimização do cuidado com a horta.
-- **Melhorias Futuras:** Adição de interface gráfica, armazenamento em banco de dados e controle remoto.
+a.	Impacto do sistema: O sistema auxilia no crescimento saudável das plantas, proporcionando um cuidado mais prático e eficiente para o agricultor.
+b.	Melhorias Futuras: Implementar um sistema que envie atualizações em tempo real das condições do solo (temperatura e umidade) para o usuário.
 
 ---
 
@@ -166,22 +214,3 @@ O MVP foi apresentado e validado pelo cliente.
   [Inserir link do vídeo e fotos da feira]
 
 ---
-
-## 11. 📄 Carta de Apresentação
-
-(Carta formal com o convite à participação do cliente será incluída como anexo.)
-
----
-
-## 12. 📝 Carta de Autorização
-
-(Carta assinada pelo cliente autorizando o uso de dados e participação será adicionada.)
-
----
-
-## 13. ✍️ Relatos Individuais
-
-Cada membro da equipe descreverá brevemente sua experiência no desenvolvimento do projeto.
-
----
-
