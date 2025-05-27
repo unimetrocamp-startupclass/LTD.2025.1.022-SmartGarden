@@ -195,22 +195,101 @@ b.	Melhorias Futuras: Implementar um sistema que envie atualizações em tempo r
 
 ---
 
-## 9. 🧪 Homologação do MVP
-
-O MVP foi apresentado e validado pelo cliente.  
-(Fotos e lista de presença serão adicionadas no repositório.)
-
----
-
 ## 10. 📣 Divulgação
 
-- **LinkedIn do Projeto:**  
-  [Inserir link do perfil do projeto no LinkedIn aqui]
+Projeto divulgado no **LinkedIn** da equipe:
 
-- **Apresentação no Seminário de Projetos de Software:**  
-  [Inserir link do vídeo e fotos da apresentação]
+**Equipe:**
+- Gabriel Rodrigues Honorato  
+- Gabriel Oliveira  
+- Isadora de Melo
 
-- **FENETEC:**  
-  [Inserir link do vídeo e fotos da feira]
+Desenvolvido na disciplina **Programação Orientada a Objetos em Java**, ministrada pelo profº **Kesede Rodrigues Julio** no **Centro Universitário UniMetrocamp**.
 
 ---
+
+A tecnologia está revolucionando a agricultura, e a **Programação Orientada a Objetos (POO)** em **Java** tem um papel fundamental nesse avanço.
+
+Desenvolvemos um **sistema de horta inteligente** que monitora temperatura e umidade do solo, controlando automaticamente a irrigação com base nas condições detectadas pelos sensores.
+
+### 🔧 Estrutura do Sistema
+
+O sistema é estruturado em classes:
+
+- `Sensores` – Coleta de dados ambientais (temperatura e umidade)
+- `Plantas` – Regras relacionadas às necessidades específicas
+- `Sistema de Irrigação` – Lógica de decisão para ativar irrigação
+- `Controlador Central` – Coordenação e interpretação dos dados
+
+### ✅ Benefícios do Uso de Java e POO
+
+- Código robusto e escalável  
+- Facilidade de manutenção e expansão  
+- Portabilidade entre dispositivos  
+- Redução de desperdício de água em até **40%**
+
+Com POO e Java, construímos **soluções sustentáveis e inteligentes** para a agricultura, unindo **inovação** e **respeito ao meio ambiente**.
+
+> 🌱 A transformação digital no campo já começou — e fala a linguagem Java.
+
+## 📨 11. Carta de Apresentação
+
+Vimos por meio desta apresentar o grupo de acadêmicos do **Centro Universitário UniMetrocamp**, localizado na Rua Sales de Oliveira, 1661 – Campinas/SP, a fim de convidá-la, **Francisca Rodrigues Honorato**, a participar de uma atividade extensionista vinculada à disciplina **Programação Orientada a Objeto em Java**, sob orientação do professor **Kesede Rodrigues Julio** (profkesede64@gmail.com).
+
+De acordo com o Plano Nacional de Educação, o UniMetrocamp promove projetos de desenvolvimento de software orientados pela metodologia ágil **Scrum**, baseados nos seguintes princípios:
+
+- Diagnóstico de problemas e demandas
+- Participação ativa dos envolvidos
+- Construção coletiva de conhecimento
+- Planejamento, execução e avaliação das ações
+
+A disciplina visa desenvolver sistemas em **Java utilizando programação orientada a objetos**, por isso, solicitamos sua colaboração nas seguintes etapas:
+
+- Levantamento e validação de requisitos  
+- Acompanhamento das entregas parciais  
+- Homologação do MVP  
+
+Caso aceite, solicitamos a formalização da parceria mediante **assinatura da Carta de Autorização**. Também estendemos o convite à participação no **fórum semestral de avaliação das atividades**, previsto para o final do semestre.
+
+Desde já agradecemos e nos colocamos à disposição para esclarecimentos.
+
+**Campinas, 23 de maio de 2025**
+
+-
+
+## ✅ 12. Carta de Autorização
+
+Eu, **Francisca Rodrigues Honorato**, autorizo a realização das atividades acadêmicas previstas na disciplina **ARA0075 – Programação Orientada a Objeto**, sob orientação do Prof. Kesede Rodrigues Julio.
+
+### Atividades autorizadas:
+
+- Fotos da plantação  
+- Coleta de dados das plantas
+
+### Alunos autorizados:
+
+| Nome                           | Curso | Matrícula     |
+|--------------------------------|-------|---------------|
+| Gabriel Henrique de Oliveira Alves | ADS   | 202402410652 |
+| Gabriel Rodrigues Honorato         | ADS   | 202402660292 |
+| Isadora Geremias de Melo          | ADS   | 202403503786 |
+
+Declaro que fui informado(a) sobre os objetivos das atividades, ciente de que se tratam de ações **exclusivamente educacionais**, sem fins profissionais.
+
+**Autorizo, em caráter de confidencialidade:**
+
+- O acesso a informações e dados necessários  
+- O registro de imagens (fotografias)
+
+**Campinas, 23 de maio de 2025**--
+
+## 🗣️ 13. Relato Individual do Processo
+
+**Gabriel Henrique de Oliveira Alves**  
+> Começamos definindo as principais partes do sistema e suas relações. Utilizamos os conceitos de orientação a objetos para estruturar o código, facilitando futuras alterações e manutenções.
+
+**Gabriel Rodrigues Honorato**  
+> Durante o desenvolvimento, implementei a lógica de monitoramento e controle automático. A irrigação é ativada com base nos dados capturados pelos sensores, reduzindo a necessidade de ações manuais.
+
+**Isadora Geremias de Melo**  
+> Realizei testes em cenários variados, ajustando comportamentos do sistema conforme necessário. Também colaborei na organização da documentação final e verificação do funcionamento completo.
