@@ -12,8 +12,8 @@ void setup() {
 }
 
 void loop() {
-  int leitura = analogRead(A1);                      // Lê a umidade do solo
-  umi = map(leitura, 0, 1023, 0, 100);               // Converte para porcentagem (0% = seco)
+  int leitura = analogRead(A2);                      // Lê a umidade do solo
+  umi = map(leitura, 1023, 0, 0, 100);               // Converte para porcentagem (0% = seco)
 
   Serial.print("Leitura analogica: ");
   Serial.print(leitura);
